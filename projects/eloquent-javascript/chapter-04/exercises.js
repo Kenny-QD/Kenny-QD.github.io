@@ -2,7 +2,16 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(start, end) {
+    results = [];
+    for( var i = start; i <= end; i++){
+        results.push(i);
+    } else if (start > end){
+        for( var i = start; i > end; i--){
+            results.push(i);
+        }
+        return results;
+    }
 
 }
 
