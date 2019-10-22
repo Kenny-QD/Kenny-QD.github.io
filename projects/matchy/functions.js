@@ -53,14 +53,16 @@ var remove = (animals, name) => {
 // Step 4 - Create ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-let add = (animals, animal) => {
-     if (animal.hasOwnProperty("name") && animal.hasOwnProperty("species") && animal.name.length > 0 && animal.species.length > 0) {
-         if (search(animals,animal.name) === null){
-             animals.push(animal);
-         }
+function add(animals,animal){
+    //make a conditional to test use hasOwnProperty and the given objects name and species to see if it is greater than 0 
+    if (animal.hasOwnProperty("name") && animal.hasOwnProperty("species")&& animal.name.length > 0 && animal.species.length > 0) {
+        // use if statement to call function and check if its equal to null
+        if (search(animals,animal.name) === null) {
+            //push method the new object to the animals array
+            animals.push(animal);
+        }   
     }
 }
-
 /**
  * You did it! You're all done with Matchy!
  */
