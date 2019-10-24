@@ -2,19 +2,27 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end) {
-    results = [];
-    for( var i = start; i <= end; i++){
-        results.push(i);
-    } else if (start > end){
-        for( var i = start; i > end; i--){
-            results.push(i);
-        }
-        return results;
+function range(start, end, step) {
+var array = [];
+// create conditional to test if start is equal to end
+if(start === end) {
+  return array;
+  //return empty array if numbers are the same
+    //if no step is listed, count by 1
+    } else if (step === undefined){
+      for (let i = start; i <= end; i++)
+        array.push(i);
+    //count by step if it is greater than 0    
+    }else if (step > 0) {
+      for (let i = start; i <= end; i += step)
+        array.push(i);
+    //if step is negative, count backwards from start to end  
+    } else {
+      for (let i = start; i >= end; i += step)
+        array.push(i);
     }
-
+    return array;
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -27,7 +35,15 @@ function sum() {
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
+function reverseArray(array) {
+  // create a array storage
+  var arrayReverse = [];
+  // create a loop
+  for (var i = 0; i < array.length; i++){
+    // unshift the elements 
+    arrayReverse.unshift(array[i]);
+    // return the arrayReverse
+  }return arrayReverse;
 
 }
 

@@ -2,31 +2,52 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function objectValues(object) {
-
-} 
+/*globals key */
+/*eslint-disable no-native-reassign, no-else-return, no-param-reassign, no-shadow-global*/
+let objectValues = (object) => {
+let arrb = [];
+for (key in object){
+    arrb.push(object[key]);
+}
+return arrb;
+} ;
 
 //////////////////////////////////////////////////////////////////////
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function keysToString(object) {
+let keysToString = (object) => {
+let hold = Object.keys(object);
+return hold.join(" ");
 
-}
+};
 
 //////////////////////////////////////////////////////////////////////
 // Function 3 - Values to String /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function valuesToString(object) {
-    
-}
+let valuesToString = (object) => {
+    let arr = [];
+    for(key in object){
+        if (typeof object[key] === 'string'){
+            arr.push(object[key]);
+        }
+    }
+    return arr.join(" ");
+};
 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
+    if (Array.isArray(collection) === true){
+        return 'array';
+    } else if (typeof collection === 'object'){
+        return 'object';
+    } else {
+        return 'not in collection';
+    }
     
 }
 
@@ -34,16 +55,18 @@ function arrayOrObject(collection) {
 // Function 5 - Capitalize Word //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function capitalizeWord(string) {
-    
-}
+let capitalizeWord = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+ string = string.split(" ");
+    for (var i = 0; i < string.length; i++) {
+        string[i] = string[i][0].toUpperCase() + string[i].slice(1);
+    }
+    return string.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -51,7 +74,8 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+let mess = object.name.charAt(0).toUpperCase() + object.name.slice(1);
+return "Welcome " + mess + "!";
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -59,7 +83,9 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+let name = object.name.charAt(0).toUpperCase() + object.name.slice(1);
+let spec = object.species.charAt(0).toUpperCase() + object.species.slice(1);
+return name + " is a " + spec;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -67,7 +93,11 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+if (Array.isArray(object.noises) && object.noises.length > 0){
+    return object.noises.join(" ");
+} else {
+    return "there are no noises";
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -75,7 +105,11 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+if (string.includes(word) === true){
+    return true;
+} else {
+    return false;
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -83,7 +117,10 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+if (Array.isArray(object.friends) === true){
+    object.friends.push(name);
+}
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -91,6 +128,11 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
+    if( object.hasOwnProperty("friends") && object.friends.includes(name)){
+        return true;
+    } else {
+        return false;
+    }
 
 }
 
@@ -99,7 +141,16 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    // create a binding for non friends
+let rejects = [];
+for (let i = 0; i < array.length; i++){
+    if (name !== array[i].name){
+        if(!array[i].friends.includes(name)){
+            rejects.push(array[i].name);
+        }      
+    }
+}
+return rejects;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -107,7 +158,8 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+object[key] = value;
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -115,7 +167,11 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+for (key in object){
+    if( array.includes(key)){
+        delete object[key];
+    }
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -123,7 +179,15 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+for (let i = 0; i < array.length; i++){
+    for (let k = i + 1; k < array.length; k++){
+        if (array[k] === array[i]){
+            array.splice(k, 1);
+            k--;
+        }
+    }
+}
+return array;
 }
 
 //////////////////////////////////////////////////////////////////////

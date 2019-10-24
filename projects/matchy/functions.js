@@ -32,7 +32,7 @@ var replace = (animals, name, replacement) => {
     for (var i = 0; i < animals.length; i++){
         var currentAnimalName = animals[i].name;
         if( currentAnimalName === name){
-            animals.splice(animal[i], 1, replacement);
+            animals.splice(animals[i], 1, replacement);
         }
     }
 }
