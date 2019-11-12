@@ -1,82 +1,104 @@
 /**
  * Loops
  * 
- * Loops are used to repeatedly run a block of code, until a certain condition is met
- * There are different ways to loop, which are while, do while, for, and for-in.
+ * Loops are used to let us run a code block as many times as possible.
+ * We use them to iterate over a collection of data.
+ * Loops iterate infinitly, unless given a stopping condition, which stops the loop
+ * once given condition has been reached.
  * 
- * While Loops 
+ * There are 3 different types of loops we can use
+ * 
+ * While-Loops, For-loops, For-in-Loops.
  */
  
- var sum = 0;
- var num = 1;
- while (num <= 10) { // Condition
-     sum += num;     // Body
-     num++;           // incrementer
- }
- // Above example:
- // num will continue to grow, since its starting from 1, it'll grow after the first iteration to 2, then so forth 3
- // until it hits 10 thats when the incrementer will stop and the loop is finished.
- 
- // Incrementing causes the num counter to increase pre loop, once the counter becomes greater than 10
- // the loop will stop.
- // The incrementer helps the runs infinitely unless a stopping condition is given, This makes the loop to stop
- // once the condition is met 
- 
- // Do-While loops
- 
-var text = "";
-var i = 0;
-do {
-  text += "\nCounter is " + i;
-  i++; // incrementing i
-}
-while (i < 10); // stopping conditions
- console.log(text);
- 
- /* Do-while loops executes first then the condition is evaluated if the while condition is true
- the block is excuted again, until the condition is false.
- */
- // For loop
- 
- for (var i = 1; i <= 10; i++) { // This for loop will count forwards 
-     sum = sum + i;
- }
- for (var k = 20; k >= 0; k--) { // This for loop will count backwards
-    k == i;
- }
- /* For loops is one of the most used loops. It consist of 3 parts, separted by semicolons
- 1st part is the initializer, which initializes the loop
- 2nd part is the condition, whenever the condition is true it'll continue to run until the condition is no longer met.
- 3rd part is the updater, It can either increment (++) or decrement (--) the loop 
- *==WARNING==* If the condition is not met it will continue on Infinitly and can cause a crash.
- */
  
  /**
-  * For-In Loop
+  * For-Loops:
+  * Can be used to when we loop a certain amount of times
+  * We can use them to iterate through a collection of data like
+  * Arrays, Strings, etc.
   * 
-  * a for-in loops iterates through the properties of an object and excutes the loop.
+  *    *Initial expression,
+  *      *Stopping condition
+  *        *Incrementor
+  * 
+  *  With an initial expression, we are starting the loops
+  * 
+  *  The stopping condition is when we want the loop to stop,
+  *   failure to give a proper stopping condition will create an infinite loop.
+  *    infinite loops can crash your system, if not given a proper condition
+  *  
+  *  Incrementors increases or decreases once the condition is satisfied and will
+  *   continue the action until the stopping condition is met.
+  *           
+  *            [EXAMPLE]
   */
   
-  var person = {
-      firstName: "Suzie",
-      lastName: "Doe",
-      age: 22
-  };
- var text = "";
- var x;
- for (x in person) {
-     text += person[x] + "-"; // this should print out Suzie-Doe-22-
+  // [Initial]       [Incrementor]
+ //      |                |
+//       V                V
+  for(let i = 0; i < 10; i++){
+  //               ∧
+ //                |
+//        [Stopping Condiition]
+
+   console.log(i); // will print the numbers 1 - 10
+  }
+
+/**
+ * Looping over Arrays!
+ * We can loop over arrays, by using a For-Loop
+ * by doing so we can access within an array 
+ *             [EXAMPLE]
+ */
+ let array = [1,2,3,4,5]; // Our array we are going to iterate through
+ for(let i = 0; i < array.length; i++){
+  console.log(array[i]); // should print out 1, 2, 3, 4, 5!
+ }
+ // BUT THATS NOT ALL!
+ // We can also iterate BACKWARDS!!
+ 
+ for(let i = array.length-1; i >= 0; i--){
+  console.log(array[i]); // This should print out 5, 4, 3, 2, 1!
+  // Here we are iterating the array backwards
+ }
+  
+
+/**
+ * For-in-Loops:
+ * We use For-In-Loops to access the values within an object.
+ * This lets us access the values that are stored within a key.
+ *             [EXAMPLE]
+ */
+ let object = {};
+ for(var keys in object){
+  console.log[keys];
  }
  
- // Looping through an Array
- 
- var myArr = ["Its", "my", "Array"];
- var arL = myArr.length;
- for ( var i = 0; i < myArr.length; i++){ // going forward within an Array
-     console.log(myArr[i]);
+ /** 
+ * Looping-Over an Object:
+ * For-in-Loops, iterates through an object for us, by doing so
+ * we can access the keys within an object.
+ * 
+ *             [EXAMPLE]
+ */
+ let myName = {
+  nameFirst: "Tom",
+  nameLast: "Cruise",
+ };
+ for ( var key in myName){ // We are accessing the Object of myName
+     console.log(key); // This should print the keys of nameFirst and nameLast.
+      console.log(myName[key]); // BUT we can go deeper within the object!
+                                 // This should print out Tom, Cruise
  }
  
- for (var j = arL; j >= 0;j--){ // This should loop through the array backwords
-     console.log(myArr[j]);
+/**
+ * While-Loops:
+ * We can use while loops when we want to loop WHILE the given condition is true
+ *             [EXAMPLE]
+ */
+ let counter = 0;
+ while (counter <= 10){
+  counter++;
+  console.log(counter); // Should print out 1, 2, 3, 4, 5, 6, 7, 8, 9, 10!
  }
- 

@@ -34,76 +34,52 @@ var myVariable = 1;
 var myVariable = true;
 myVariable = "someString";
 
-// 4. camalCase //
- var camalCase = 'Camals';
 
- // camalCase is used to distinguish different variables and make them easier to read.
- // example //
- var mydearauntsally; // 
- var myDearAuntSally; // much more easier to read having the letter capitalized
-
-/*
- * Reserved-Keywords
- * 
- * In Javascript there are a few certain words that are reserved and can't be used as a name of a Variable
- * Such as:
- * var, let, for, in, const, while, function, alert, location, ParseFloat, eval, window, isN, aN
- */
- 
  /**
-  * Difference between let, var, const.
   * 
-  * var: Var is a way to declare variables in Javascript. Variables that are declared by var, may or may not be used within the entire function.
-  * var can be easily reassigned with a new variable if not careful. Compared to the other two, var is weaker keywords and is becoming less used
-  * compared to the others.
-  */ 
-  // example
-  //var myVar = bananas; // my var is declared as Bananas
-  //var myVar = potatoes; // my var is now reassigned as potatoes, replacing the bananas.
-  /**
-   * let: let is a newer way of declaring variables. let was introduced with const in 2015, which is a little bit more stricter than declaring
-   * var variables. Declaring let variables gave the code block more focus in existing within its corresponding block.
-   * Declaring a let variable will let the variable stick to function without crossing 
-   * example
-   */ 
-  // let myLet = ponchos; // my let variable as ponchos.
-   // let myLet = hats; // This will give an error saying myLet has already been declared as ponchos and will not replace it.
-   
-   /**
-    * const: const is almost the same as let, but much more stricter, unlike let const can not be reassigned. Once you declare a const variable
-    * it'll stay that variable no matter what.
-    * 
-    */ 
-    //example
-  const favFoods = "fries";
-  console.log(favFoods); // this should print out "fries"
+  * var, let, const
+  * 
+  * var, let, const are used to declare variables, but each are different.
+  * 
+  * var:
+  * var is globally or locally scoped, and can be reassigned to a new variable
+  * in terms of strength the var keyword the weakest way to declare a variable.
+  *
+  * let:
+  * let however can be also reassigned, but instead of being globally or locally scope
+  * let is blocked scope, meaning they are pinned to the code block they were declared in.
+  * that being said, let variables are not hoisted to their code block.
+  * 
+  * const:
+  * const variables unlike let and var, it can not be reassigned. 
+  * It must be declared and assigned on the when being initialized it can not be undefined.
+  * const is also block scoped.
+  */
   
- // favfoods = "tots"; // attempting to change my favFoods 
- console.log(favFoods); // This will still print out "fries"
-
-/**
- *  HOISTING
- * 
- * In javascript, variables can be declared after it has been used.
- * BUT a variable can be be used before its declared.
- * Hoisting is a way where variables and function declaration are moved to the top of the scope. 
- * It just means whenever a function or variable is declared its moved to the top, globally or locally 
- */// example
- 
- function myPet(pet){
-  console.log("I have a pet " + pet); // although I have yet to declare what my pet is, as long I declare it somewhere in the block it'll input it into the console. 
- }
- myPet("Monkey");
- 
- 
- // But hoist does not work on initialized variables
- // example
- 
- var x;
- var y = x;
- x = 9;
- 
-console.log(myMessage); // will print undefined but, not a referenceError
-var myMessage = "hello moto"; // var declaration 
-console.log(myMessage); // This will print out "hello moto" on to the console
-
+  var food = 'burgers';
+  var food = 'fries';
+  console.log(food); // will overwrite and now fries is the food variable instead of burgers
+  
+  function myfunc(food){
+   let drink = 'oj';// This let variable will stay inside this function
+   drink = 'water'; // but can be reassigned
+   console.log(drink);// should print water instead
+  }
+  
+  function sides(food){
+   const meal = []; // const variables can not be changed, BUT it can be modified
+   meal.push('chicken');
+  }
+  
+  /**
+   * Hoisting
+   * 
+   * Hoisting does exactly what it sounds like.
+   * its a behavior that all variable declaration are moved to the top of their scope.
+   * Note that only var variables are hoisted, let and const variables are not.
+   */
+   
+   fruits = 'apple'; // Here we are assigning apples to fruits, but has yet to be declared
+   console.log(fruits); // should print apple, once declared.
+   var fruits; // although we've declared fruits after, it is automatically hoisted to the top of the scope.
+   

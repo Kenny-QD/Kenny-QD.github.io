@@ -1,72 +1,67 @@
 /**
  * String-Manipulations
  * 
- * Strings can be altered using different methods
+ * Strings is consist of characters that can be letter, number, or symbols.
+ * But they are simple immutable datatype that we can manipulate using operators 
+ * and string-manipulation methods
  * 
  * One way we can manipulate strings is using operators
  */
+ // [OPERATORS] //
+ // We can manipulate strings using operators such as (=), and (+)
  
- var temperature = "Hot"; // Now that we've initialized our Variables we can use it together to form a new string
- var animal = "Dog";
+ let candy = "Chocolate "; // we've initialize chocolate to candy soon to be concated
+ let cool = 'Ice ';
+ let dessert = candy + cool + "Cream"; // the final product of our concat using ( + )
+ console.log(dessert); // should print out "Chocolate Ice Cream" as a string
  
- var food = temperature + " " + animal; // it is important to either have your variable with a space
-                                        // or Adding an additional " " inbetween the strings or else it'll look like "HotDog"
- console.log(food); // Should print "Hot Dog" forming a new string
- temperature += animal; // This can also combine the two strings
 
-/**
- *  There are string methods that can be used to manipulate strings
- * 1. split()       : Splits a string into an Array substrings
- * 2. slice()       : Extracts part of a string and returns it into a new string
- * 3. concat()      : Joins two or more strings and makes a new string
- * 4. repeat()      : returns a new string with a number of copies of existing strings
- * 5. toLowerCase() : converts string to lower case
- * 6. toUpperCase() : converts string to uppercase
- * 7. substring()   : extracts the characters frin a string between two indices
- * 8. trim()        : removes the white space from both ends of a string
- * 9. toString()    : returns the value of a string object
- * 10. charAt()     : returns the character at the specified index
- */
- // Example of Split
- var spl = "I stubbed my big toe";
- spl.split(" ");
- console.log(spl); // Now it should print that spl is an array
+ // There are ways of manipulating strings using methods
  
- //Example of Slice
- var sli = " Thank you";
- var ce = sli.slice(0 , 6);
- console.log(ce); // This should allow print out Thank
+ // split()       : converts a string into an Array
+ var banana = 'banana split' ;
+ banana.split(' ');
+ console.log(banana); // Now it should print ['banana', 'split'] as an array
  
- // Concat()
- var con = "New ";
- var cat = "age";
- var conkitty = con.concat(cat); // This should print out "New age"
+ // slice()       : removes part of a string and makes it into a new string
+ var cut = "Pizza Slice";
+ var me = cut.slice(0 , 5);
+ console.log(me); // This should allow print out a whole Pizza!, instead of a little slice :|
  
- // Repeat()
- var repate = "Bananas! ";
- repate.repeat(3); // This will make the string repeat itself 3 times
+ // repeat()      : returns a new string with a number of copies of existing strings
+ var repeater = "BANG ";
+ repeater.repeat(3); // This will make the string repeat itself 3 times into "BANG BANG BANG"
+
+ // toLowerCase() : converts string to lower case
+ var yey = "YAY"
+ var shh = yey.toLowerCase(); // This will make the string into lowercase
+ console.log(shh); // should print out a sad "yay"
  
- // toLowerCase()
- var low = "HOT DIGGITY";
- var cas = low.toLowerCase(); // This will make the string into lowercase
+ // toUpperCase() : converts string to uppercase
+ var a1 = "bingo";
+ var winner = a1.toUpperCase();
+ console.log(winner); // should print out "BINGO" was his name oh...
  
- //toUpperCase
- var up = "jojo!";
- var per = up.toUpperCase(); // using this method per will be initialized as "JOJO!"
+ // concat()      : Joins two or more strings and makes a new string
+ var dare = "tumble ";
+ var drugs = "weed";
+ var what = dare.concat(drugs); // This should print out "tumble weed"
+ console.log(what);
  
- // substring()
- var sub = "macaroons";
- var strang = sub.substring(2, 5);
- console.log(strang); // will print out car
+ // substring()   : removes two parts of a string
+ var guy = "Post Malone!";
+ var oh = guy.substring(6, 11);
+ console.log(oh); // will print out "alone"...
  
- // trim()
- var tri = "     air     ";
- tri.trim(); // removes the empty spaces before and after the word
+ //trim()        : removes the white space from both ends of a string
+ var empty = "     space     ";
+ empty.trim(); // removes the empty spaces before and after the word
+ console.log(empty); // print "space"
  
- // toString()
- var tos = "World Wide";
- tos.toString(); 
+ //charAt()     : returns the character at the specified index
+ var woo ="Opium" ;
+ woo.charAt(2); // should print out "i"
  
- // charAt()
- var char = "UNIVERSE";
- char.charAt(2); // I
+ //toString()    : converts the value into a string object
+ var num = 88;
+ num.toString(); // will convert the number 88 into a string of "88"

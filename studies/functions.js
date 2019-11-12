@@ -1,75 +1,108 @@
 /**
  * Functions
  * 
- * Functions is a code block that is designed to perform a task
- * Its comprised of two phases, the creation phase and the execution phase
- * The first phase is the creation phase in which a variable and a function is typed into the memory.
- * The second phase is the execution phase, to execute the lines of codes. This phase, the code can reference
- * by the variable and function that was interpreted in the memory. 
+ * Functions are one of the most fundamental building blocks in Javascript.
+ * We use them to allow us perform a task, using statements.
+ * Functions are made up of code blocks that we can input and use to execute the task.
+ * With functions we can create closures that allows us to reference variables inside nested function.
+ * 
+ * There are two phases to using a function.
+ * The first phase is like a declaration/creation phase
+ * Where we give the function a name and parameters.
+ * The second phase is the invoking/execution phase, where created function
+ * are performing the given task.
  */
+ 
+ function timeTwo(num){ // here we are declaring timeTwo takes a num parameter
+  let x2 = num * 2; // Here we are executing that we are multiplying num by 2
+  return x2; // return the newly multiplied number.
+ }
+ timeTwo(3); // => 6.
 
- // Syntax for a function expression
- // var myFunc = function name( ){
- //     return 'My Function'; // statement
- // };
+/** 
+ * Parameters & Passed Arguments
+ * 
+ * Parameters are like a variable name in where we would use it in place for a value
+ * that would be pushed into the function.
+ * Its used to give the user what kind of datatype we want to be pushed.
+ * 
+ * Passed Arguments are the actual real values that we want to in the parameter.
+ * The function can not run until an argument is passed.
+ */
  
-function myFunction() { // declaring the function, myFunction
- // code block 
-}
-myFunction(); // calling the function
- /* The difference between parameters and arguments PASSED
- A Parameter is a variable in a definition. When a method is called the arguments are the data that
- pass into the method's parameters.*/
- 
- var argu = function(a,b){ // a,b are the parameters
-    console.log(a); // should print out 1
- 
- };
- argu(1,2);// when you call the argu function it creats an argument as [1, 2]
+ function myfunction(parameter){
+  return parameter; 
+ }
+ console.log(myfunction('Argument'));
  
  /**
-  * Scopes in a function
+  * Named Function syntax
   * 
-  * Functions can access variables in the parent or child scope. 
-  * They cannot access variables in their inner functions.
-  * Child scopes are the parameters and variable that is defined within a Parent Scope
-  * The child scopes are able to use the variables of the parents scope, but parent scope 
-  * CANNOT use the children scope's variable.
+  * We can declare a keyword for named function.
+  * afterwards in parenthesis we can set a parameter to the function.
+  * Next using a curly bracket we can get working on the code body.
+  * The code body is important for the function to allow it perform a certain task.
+  * lastly we can return the output that we want from the function.
+  *
   * 
+  * Assigning a variable to a function.
+  * 
+  * We can assign a function into a variable container, 
+  * which helps calling the function later within a function
   */
   
-   var global = 'this is globally scoped'; // accessible on a global scale
-  
-  function local(array){
-      var arr = ['This is a locally scoped']; // accessible on a local scale
-  }
- 
- // Functions can OPTIONALLY take inputs, and OPTIONALLY return a single value.
- 
-function name(){ // does not have to take an parameter or an argument for it to work
- console.log("Bang");
-}
- name(); // will print out "Bang"
- // since it takes not input it'll just print out the same output everytime
- // /**
- /* Closures
-  * 
-* Closures are functions inside other functions who use variables from the outer
-* function's scope. In the outer inner variable pairing, the inner variable can keep
-* the variables declared in the outer function even after the outer function is called.
-*/
-
-  
-  // Example
-  var add = function() {
-      var counter = 0;
-      return function () {
-      counter += 1; return counter }; // the counter is referencing an variable outside of its function.
+  let assignVar = function(parameter){ // assigning a function to a variable
+   return 'assigned variable';
   };
+  assignVar(); // Here we are calling the function under the assignVar, variable.
   
-  add(); // counter should start and is at 1
-  add(); // Counter goes up to 2 
-  
-  
-  // Note to self: add arrow syntax 10/20
- 
+  /**
+   * Functions are input/output optional
+   * 
+   * Functions can optionally take a paramater and optionally return an output.
+   * But without a return statement the function will output undefined
+   */
+   
+   function print(){ // Here we have a function that does not a parameter
+    console.log("optional"); // this function does not have a return
+   }
+   print();
+   
+   /**
+    * Scopes
+    * 
+    * Scopes are sections of a function. There are two types of scopes
+    * Global scopes and Local scopes. 
+    * Global scopes are typically outside the function, but does NOT have access to local scopes.
+    * While Local scopes are inside within a function and has access to the global scopes.
+    */
+    
+    let sun = 'sun'; // globally scoped variable
+    function home(){ // This is a function
+     let me = 'nah '; //locally scoped variable
+     return me + sun;
+    }
+    home(); // should be able to return 'nah sun'
+    // if we console log the variable (me) outside of the function. we'll get a reference error
+    
+    /**
+     * Closures
+     * 
+     * Closures are created everytime we create a function. 
+     * We can use closures by calling a function within a function.
+     * Closures gives us access to the outter function scope while we're in the
+     * inner function.
+     */
+     let first = "Bhat";
+     let last = "Mon";
+     
+     function name(first, last){
+      let fullName = first + " " + last;
+      return function greet(){
+       return "Hi " + fullName;
+      };
+     }
+     name(first, last);// here should return "Hi Bhat Mon"
+     
+     //Since we've created a greet function within the name function, 
+     //the greet function has access to all of variables outside of its scope.

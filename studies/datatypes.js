@@ -1,151 +1,134 @@
 /** 
  * Datatypes
  * 
- * Datatypes are variables in Javascript to contain any type of data. The Variable can be 
- * a string, number, boolean, an Array, object, function, undefined, null, NaN, infinity, or -infinity
+ * Datatypes: are types of value that consist of simple datatypes and complex datatypes.
  * 
- * Strings
+ * Simple datatypes are primitive datatypes that consist of numbers, strings, booleans, Nan, null, and undefined.
+ * primitive datatypes are immutables which means they can be reassigned, BUT can not be modified in some way.
+ * They are considered simple, because they don't hold any other value besides its self.
+ * simple datatypes are copied by value meaning their value are copied from one variable to the next.
  * 
- * Strings are used to store texts. In order to store a string the text must have either a double quotation mark
- * or single. Strings are also immutable which means they can not be changed.
- */
- var string1 = "This is a string";
- var string2 = 'This is also a string';
+ * Complex datatypes consist of: arrays, objects, and functions. They are considered complex because they are
+ * indefinite in size and can take however amount we put in it.
+ * That means they are mutatable and copied by reference.
+ * Complex datatypes can be modified and altered in some ways using different methods
+ */ 
+ 
+ var name = "Joe"
+ var firstName = name; // This is referencing by copy
+ name = 'Dirt';
+ console.log(firstName); // although we've changed the name variable to "Dirt"
+ // firstName variable will still be "Joe".
+ // referencing by copy, simply just makes a copy of the variable its referencing
+ 
+ 
+ let array = [] // creating an array
+ array.push('altered array'); // we are altering it by pushing a new value within
+ console.log(array); // should print out ['altered array']
+ 
+ var newArray = array; // This is copied by reference, because it is refering to the array variable
+ newArray.unshift("Same"); // this affects its referenced array
+ console.log(array); // this should print out ["Same", "altered array"]
+ 
+ // [Simple Datatypes] //
+ 
  
  /**
   * Number
   * 
-  * Numbers can be written with or without decimals.
+  * Numbers are simple datatype that represent any number that can be megative, positive or a decimal.
   */
-  var x = 10;
-  var y = 1.0;
-  
+  var number = 88;
+  var negative = -10;   // These are all numbers
+  var decimal = 0.01;
+ 
+ /**
+ * 
+ * Strings
+ * 
+ * Strings are simple datatypes that represent a string of characters.
+ * strings can be a number a symbol, or a letter as long as they are within a '' or ""
+ * quotation.
+ */
+ var string = "This is @ str1ng!"; // as long as theres a quotation surrounding 
+ 
   /**
    * Boolean
    * 
-   * Booleans shows wheither a value is true or false using comparisons and conditions
+   * Booleans are simple datatypes that has two possible values either true or false
    */
+   let x = 1;
+   let y = 3;
    
-   ( x > y ); // should return as true
-   ( x < y ); // Should return as false
-   ( x == y );// Should return as false
-   
-   // You can also use the boolean() function to find out if an expression or variable is true or not
-   
-   Boolean(x > y); 
-   
-   /**
-    * Array
-    * 
-    * Arrays are used to store multiple values in a single variable. (Like a string or a number)
-    */
-    
-    var myArray= ["Blue", "Yellow", 42];
-    
-    //The order within the array starts at the 0 index
-    
-    var colors = myArray[0]; // which will choose "Blue" from the Array and the value of colors will be "Blue"
-    
-    /**
-     * There are different ways to manipulate such as; Pushing and Popping, Shifting and Unshifting.
-     * Pushing method and put in a value at the end of an Array, While Popping will take a value out of an Array.
-     * Shifting an Array will remove a value from the beginning of an array and unshifting will add a value from the front.
-     */
-     
-// Example
-myArray.pop(); // Which will remove the 42
-myArray.push("Red"); // Now I will add "Red" at the end of the array
-myArray.unshift("White"); // Will add the value of "White" in front of the Array
-myArray.shift(); // Will then remove the "White" from the array
+   (x > y); // returns false
+   (x < y); // returns true
+   Boolean(x > y); // returns false
+
 
 /**
  * Null
  * 
- * Null is a special value that represents basically "nothing" or "empty" it essentially has no value
+ * Null is a simple datatype that is similar to undefined,
+ * but just means it has no value intentionally
  */
- var mySoul = null; 
- console.log(mySoul); // The console should print null.
+ var feelings = null; 
+ console.log(feelings); // The console should print null.
  
  /**
-  * undefined
+ * undefined
+ * 
+ * Undefined is a simple datatype that means a variable has yet to be assigned. 
+ * 
+ */
+ var unDefine; // This is an undefined value.
+ 
+ 
+ /**
+ * NaN
+ * 
+ * NaN is a simple datatype that means 'Not a Number' It simply just shows if its a number or not
+ */
+ 
+ isNaN(88); // since 88 is a number this will return as false
+ isNaN('88'); // since the number 88 is in a string this will return to be true instead because its a string and not a number
+
+/**
+ * 
+ * Infinity & -Infinity
+ * 
+ * Infinity & -Infinity are simple datatypes
+ * that are greater than any number, its the maximum number that we can call
+ * 
+ * the number that represent infinity is:
+ * 1.797693134862315E+308. 
+ * 
+ * While -Infinity is:
+ * -1.797693134862315E+308.
+ * typically the same number, but inverse
+ */
+ 
+// [Complex Datatypes] //
+
+
+/**
+ * Arrays
+ * 
+ * Arrays are complex datatypes that can store many different other datatypes
+ * that are contained within a square bracket [ ].
+ * Array can be referred as a collection since they can have different types of data.
+ * These collections are indexed numerically start with 0 and so forth from there
+ */
+ 
+ let arrays = ['string', 88, false, {} ]; // array can any other data inside
+ 
+ /**
+  * Objects
   * 
-  * Undefined just means that a value has been not assigned. 
-  * It is not the same as Null
+  * Bbjects are complex datatypes that can also store multiple datatypes and is also a collection.
+  * Objects rely on their key / value pairs which means that values are stored within a key
   */
   
-  var score; // This is an undefined value.
-  
-  /**
-   * NaN
-   * 
-   * NaN represents "Not A Number" which indicates that a value is not an actual number.
-   */
-   isNaN(88); // will show to be false because 88 is an actual number
-   isNaN('String'); // will show up as true because 'String' is not a number
-   
-   /**
-    * Object
-    * 
-    * Objects is JavaScript's most used datatype. An object is a list of primitive datatypes
-    * that is stored into an literal array {};
-    */
-    
-    var myObject = {     // This is a simple object
-        firstName: "Kenny",
-        lastName: "Dang"
-    };
-   
-   /**
-    * Infinity & -Infinity
-    * 
-    * Infinity is a numerical value that infinite (Positively)
-    * -Infinity is the same to Infinity, but (Negative)
-    * 
-    * They are displayed whenever a number exceeds the limits of the floating point numbers which is:
-    * 1.797693134862315E+308. or -1.797693134862315E+308.
-    *       (for Infinity)             (for -Infinity)
-    * 
-    */
-    
-    /**
-     * Primitive/Simple and Complex datatype.
-     * 
-     * Javascript has only one Complex datatype which is the Object datatype that is Mutable (Can be changed)
-     * Primitive/Simple Datatypes are Immutable that cannot be changed.
-     * Primitive/Simple Datatypes are:
-     * 1. Strings
-     * 2. Numbers
-     * 3. Booleans
-     * 4. Undefined
-     * 5. Null
-     *
-     * Complex Datatypes
-     * 
-     * 1. Objects
-     * 2. Functions
-     * 3. Arrays
-     * 
-     * The Difference between reference datatype and primitive datatype is that 
-     * reference datatype's value is stored as a reference and is not stored directly on a variable
-     */
-     // Example
-     
-     // Lets use a Primitive Datatype to store a value
-     var person = "Michael";
-     var anotherPerson = person; // another person has the value of person
-     person = "Jackson"; // value of person has changed
-     
-     console.log(anotherPerson); // should log Michael
-     console.log(person); // Should log Jackson
-     // This is by value
-     
-     // Copy by Reference
-     
-     var aPerson = {name: "Mike"};
-     var aAnotherPerson = aPerson; // assigning aAnotherPerson to aPerson
-     aPerson.name = "Tyson"; // changing the value of aPerson to Tyson
-     
-     console.log(aAnotherPerson.name); // Should print out Tyson
-     console.log(person.name); // Should print out also Tyson
-    
-
+  let kid = {}; // declaring kid an object literal 
+  kid.nameFirst = 'Scrappy'; // we're using dot notation to give the object a key and a value of 'Scrappy'
+  kid['nameLast'] = 'Coco'; // using bracket notation to do the same above
+  console.log(kid);
