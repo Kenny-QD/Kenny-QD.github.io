@@ -9,7 +9,20 @@
  *              For Example:
  */
  
- // IF
+ 
+ /** IF
+  * The syntax for an if-else-if-else chain:
+  * 
+  *  if(*our conditional*) {            <- With a curly braces, if our condition is met then we want to execute an action
+  *       return action;
+  * } else if (*another condition*) {   <- if the previous condition was no met, then we can move onto the else-if condition
+  *       return *A different action*;     we can execute a different action.
+  * } else {                            <~ if no other condition were met, we can move on to our default action.
+       return *Another Action*;         <~ This else does not take any conditional, will execute regardless, unless the previous conditions were met
+  }
+  */
+  
+ 
  var day = new Date().getDay();
  var currentDay = (day) => {
  // creating an if statement will ask the computer if this "day" value will be true or false
