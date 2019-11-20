@@ -26,6 +26,14 @@
    *  %=  Modulus assignment: Also known as the Remainder, which returns the remainder 
    *      whenever it is divided by another operand
    */
+ //   [EXAMPLE]
+ 
+x = y;  // This is equivalant to x = y
+x += y; // This is equivalant to x = x + y 
+x -= y; // This is equivalant to x = x - y
+x *= y; // This is equivalant to x = x * y
+x /= y; // This is equivalant to x = x / y
+x %= y; // This is equivalant to x = x % y
  
  /**
   *  Arithmetic Operators:
@@ -101,7 +109,12 @@
    * (!)   // NOT operator   // essentially looks for the inverse and is NOT within the conditional
    *   if(!array.length){  // explains if there is NO array length then proceed.
    */
+   // [EXAMPLE]
    
+   (num < 10 || num > 2); // should be true because num is equal to 3 and is less than 10, but greater than 2
+   (num > 1 && myNum !== 5); // will return false, eventhough num is greater than 1, but myNum Variable is equal to 5
+   (myNum !== 4); // will return true, because myNum variable is equal 5, but not 4
+   // the Bang operator is checking wheither the myNum variable is equal to 4, since it is not it will return true
   /**
    * Unary Operators
    * 

@@ -27,12 +27,30 @@
      return "Thursday";               //    
  }else if (day === 5){                //        
      return ("Friday");               //
- }else{                               //
-     return "Saturday";
- }
+ }else{                               // Else does not take any conditional statments because it is our default.
+     return "Saturday";               // if all of the over criteria are not met then the else statement will run.
+ }                                    // since the else if statements takes care of our conditionals we done need a conditional for else
  };
+ 
  currentDay(day); // This should return what day it is today;
  
+ /**
+  * Chaining
+  * 
+  * We can have as many else if chains we want.
+  * We can even have one if statement and just an else statement
+  */
+  let str = "Cat";
+  
+var isDog = function(){
+ if(str === "Dog"){ // will if str is a "Dog" if so will return true;
+  return true;
+ } else {           // since we don't need any other conditionals we can close it off with an else statement;
+  return false;
+ }
+};
+ 
+ isDog(str); // Will return false because str is not "Dog", but "Cat"
  /**
   * Switch-Statements
   * 
@@ -45,27 +63,21 @@
   */
   
 // an example we can use if changing the else if function above into a switch statement 
- 
- switch (day){
-     case 0:
-         console.log("Sunday");     // The switch statement will go through the case
-         break;                     // until it gets to the specific number in the switch statement;
-     case 1:                        // since the getDay() gives a value of 0-6 we can interpret the value
-         console.log("Monday");     // with the given day accordingly.
-         break;                     // if there are no numbers that matches the case it will go into the 
-     case 2:                        // default statement, which will be Saturday
-         console.log("Tuesday");    //
+ let score = 88;
+ switch (true){
+     case score >= 90:
+         console.log("AWESOME!");      // The switch statement will go through the case
+         break;                        // until it gets to the specific number in the switch statement;
+     case score >= 80:                 //      
+         console.log("GREAT");         // with the given day accordingly.
+         break;                        // if there are no numbers that matches the case it will go into the 
+     case score >= 70:                 // default statement, which will be Saturday
+         console.log("GOOD");          //
          break;                     
-     case 3:                        
-         console.log("Wednesday");
-         break;
-     case 4:
-         console.log("Thursday");
-         break;
-     case 5:
-         console.log("Friday");
+     case score >= 60:                        
+         console.log("OKAY");
          break;
      default:
-         console.log("Saturday");
+         console.log("OH NO!");
  }
  

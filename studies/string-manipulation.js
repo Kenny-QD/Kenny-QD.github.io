@@ -13,7 +13,8 @@
  let candy = "Chocolate "; // we've initialize chocolate to candy soon to be concated
  let cool = 'Ice ';
  let dessert = candy + cool + "Cream"; // the final product of our concat using ( + )
- console.log(dessert); // should print out "Chocolate Ice Cream" as a string
+ let desserted = dessert += "?"; // using (+=) addition assignment operator we can add a question mark
+ console.log(desserted); // should print out "Chocolate Ice Cream?" as a string
  
 
  // There are ways of manipulating strings using methods

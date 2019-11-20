@@ -36,7 +36,7 @@
  /**
   * Number
   * 
-  * Numbers are simple datatype that represent any number that can be megative, positive or a decimal.
+  * Numbers are simple datatype that represent any number that can be negative, positive or a decimal.
   */
   var number = 88;
   var negative = -10;   // These are all numbers
@@ -51,6 +51,8 @@
  * quotation.
  */
  var string = "This is @ str1ng!"; // as long as theres a quotation surrounding 
+ // we can access strings by its number index
+ console.log(string[0]); // should print "T"
  
   /**
    * Boolean
@@ -107,6 +109,8 @@
  * typically the same number, but inverse
  */
  
+ console.log(Infinity * 88); // Will still print out Inifinty, since infinity is already the maximum amount
+ 
 // [Complex Datatypes] //
 
 
@@ -120,7 +124,8 @@
  */
  
  let arrays = ['string', 88, false, {} ]; // array can any other data inside
- 
+ // we can access arrays by its number index starting from 0 
+ console.log(arrays[1]); // Should print 88 onto the console
  /**
   * Objects
   * 
@@ -131,4 +136,19 @@
   let kid = {}; // declaring kid an object literal 
   kid.nameFirst = 'Scrappy'; // we're using dot notation to give the object a key and a value of 'Scrappy'
   kid['nameLast'] = 'Coco'; // using bracket notation to do the same above
-  console.log(kid);
+  console.log(kid); // should print out { nameFirst: 'Scrappy', nameLast: 'Coco' } 
+  
+  
+/**
+ * Functions
+ * 
+ * Functions are complex datatypes that allows us to perform tasks, we store these tasks into a code body
+ * where the function can be executed as many times needed.
+ */
+ 
+ function func(parameter){
+  // Within the code body we can give the function a task
+  return "This is the code body";
+ }
+ func(); // Here we can call the function, where it should return "This is the code body";
+ // further info on functions are in in the functions studies page ᕕ( ͡° ͜ʖ ͡° )ᕗಠ)

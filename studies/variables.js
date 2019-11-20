@@ -75,11 +75,35 @@ myVariable = "someString";
    * Hoisting
    * 
    * Hoisting does exactly what it sounds like.
-   * its a behavior that all variable declaration are moved to the top of their scope.
-   * Note that only var variables are hoisted, let and const variables are not.
+   * its a behavior that all variable and functions declaration are moved to the top of their scope.
+   * They are moved to the top of the scope:
+   * 
+   * var fruits = 'apples'
+   * 
+   * is broken down to the top of the scope
+   * 
+   * var fruits;
+   * fruits = 'apples'
+   * 
+   * functions are also hoisted to the top so we can actually call the function before even creating it
+   * 
+   * 
+   * Note that only var variables are hoisted, let and const variables are also hoisted, but are
+   * not available until initialization.
    */
    
    fruits = 'apple'; // Here we are assigning apples to fruits, but has yet to be declared
    console.log(fruits); // should print apple, once declared.
    var fruits; // although we've declared fruits after, it is automatically hoisted to the top of the scope.
    
+   console.log(anchor); // calling the console before the let anchor variable will result in a reference error
+   let anchor = "heavy";
+   console.log(anchor); // but once the console is called after the let variable is will print "heavy"
+   
+   hi(); // eventhough we are calling the hi function before the function, it should still work
+   // because the function is hoisted to the top of the scope
+   
+   var hi = function(){ // This function will be hoisted to the top. allowing the hi() function call to work
+    var sayHi = 'hi';
+    return sayHi;
+   };
