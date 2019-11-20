@@ -71,7 +71,7 @@ var isDog = function(){
      case score >= 80:                 //      
          console.log("GREAT");         // with the given day accordingly.
          break;                        // if there are no numbers that matches the case it will go into the 
-     case score >= 70:                 // default statement, which will be Saturday
+     case score >= 70:                 // default statement, that handles all values that are not handled by the case
          console.log("GOOD");          //
          break;                     
      case score >= 60:                        
@@ -80,4 +80,12 @@ var isDog = function(){
      default:
          console.log("OH NO!");
  }
+ 
+/**
+ * Cases evaluates cade that are being runned, If the case conditions are met,
+ * the code within the case runs, and executes whats intended.
+ * We can think of a case similiar to a conditional statement.
+ * 
+ * While defaults are executed when none of the cases are met.
+ */
  
